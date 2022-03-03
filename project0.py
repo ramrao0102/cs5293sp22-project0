@@ -46,10 +46,13 @@ def fetch_incidents():
     for i in pypdf_text:
         for j in i:
             flat_ls.append(j)
-
-    for i in flat_ls:
-        if i.isupper() == True and  len(i) <=3:
-            flat_ls.pop((flat_ls.index(i)))
+    
+    k =0
+    while k < len(flat_ls):
+        if flat_ls[k].isupper() == True and 'OK0140200' not in flat_ls[k] and 'EMSSTAT' not in flat_ls[k] and '14005' not in flat_ls[k] and '14009' not in flat_ls[k]:
+            if flat_ls[k-1].isupper() == True and 'OK0140200' not in flat_ls[k-1] and 'EMSSTAT' not in flat_ls[k-1] and '14005'not in flat_ls[k-1] and '14009' not in flat_ls[k-1]:
+                flat_ls[k-1] += flat_ls.pop(k)
+        k = k+1
 
     del flat_ls[0:5]
 
@@ -70,10 +73,9 @@ def fetch_incidents():
                     flat_ls.insert(k, 'NULL')
                     continue
         elif k%5 == 3:
-            if flat_ls[k].isupper() == True:
-                if '2022' in flat_ls[k]  or 'OK0140200' in flat_ls[k] or 'EMSSTAT' in flat_ls[k] or '14005' in flat_ls[k] or '14009' in flat_ls[k]:
-                    flat_ls.insert(k, 'NULL')
-                    continue
+            if flat_ls[k].isupper() == True or '2022' in flat_ls[k]  or 'OK0140200' in flat_ls[k] or 'EMSSTAT' in flat_ls[k] or '14005' in flat_ls[k] or '14009' in flat_ls[k]:
+                flat_ls.insert(k, 'NULL')
+                continue
         elif k%5 == 4:
             if 'OK0140200' not in flat_ls[k]  and 'EMSSTAT' not in flat_ls[k] and '14005'not in flat_ls[k] and '14009' not in flat_ls[k]:
                 #print(flat_ls[k])
@@ -87,14 +89,14 @@ def fetch_incidents():
 
 def createdatabase():
 
-    conn = sqlite3.connect('trial')
+    conn = sqlite3.connect('/home/ramrao0102/trial')
     c = conn.cursor()
     c.execute('CREATE TABLE incidents3 (incident_time TEXT, incident_number TEXT, incident_location TEXT, nature TEXT, incident_ori TEXT);')
     conn.commit()
 
 def populatedatabase(newlist):
 
-    conn = sqlite3.connect('trial')
+    conn = sqlite3.connect('/home/ramrao0102/trial')
     c = conn.cursor()
     stmt = "INSERT INTO incidents3(incident_time, incident_number, incident_location, nature, incident_ori) VALUES (?,?,?,?,?)"
     c.executemany(stmt, newlist)
@@ -102,7 +104,7 @@ def populatedatabase(newlist):
 
 def incidentstatus():
 
-    conn = sqlite3.connect('trial')
+    conn = sqlite3.connect('/home/ramrao0102/trial')
     c = conn.cursor()
 
     find = "SELECT  nature, count(*) from incidents3 GROUP BY(nature)";
