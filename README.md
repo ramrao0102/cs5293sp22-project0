@@ -13,7 +13,7 @@ https://www.normanok.gov/sites/default/files/documents/2022-02/2022-02-05_daily_
 
 pipenv run python project0/main.py --incidents <url>
 
-5) Urlilib directory is used to download the file from the website using the urlink and within the function, code is written to write the pdf file to the root directory.
+5) Urlilib directory is used to download the file from the website using the urlink and within the function, code is written to write the pdf file Incidents_File.pdf to the /home/ramrao0102/project0.
 
 6) The main.py file also has function calls to several functions written within the project0.py file.  They include calls to functions to fetch incidents from the pdf file, create a sqlite3 database, insert rows into the sqlite3 database from the pdf file and extract data via a sql statement to obtain counts of the nature of incidents to report each incident_nature and count.
 
@@ -40,8 +40,9 @@ pipenv run python project0/main.py --incidents <url>
 * In the Incident_ORI, we check if the strings OK0140200, EMSSTAT, 14005, and 14009 do not exist.  If they do not then we add NULL in the field.
 
 9) Once this is created, then we create a list of lists from this flat_list.  Each inner list has length 5, which is the number of fields in the database.
+   The database name is project0database.
 
-10) A function is then written to create a database in /home/ramrao0102 and it is called trial database.  A table is added to this database with the following fields: Date/Time, Incident No, Location, Nature, Incident_ORI.
+10) A function is then written to create a database in /home/ramrao0102/project0 and it is called trial database.  A table is added to this database with the following fields: Date/Time, Incident No, Location, Nature, Incident_ORI.
 
 11) The table is committed to the database.
 
@@ -49,15 +50,15 @@ pipenv run python project0/main.py --incidents <url>
 
 13) Finally, an function is written to obtain incident status from the database by connecting data and fetching rows that contain each incident type and the number of counts by incident type.
 
-14) Execution of all of the above elements is completed by entering the below command in /home/ramrao0102
+14) Execution of all of the above elements is completed by entering the below command in /home/ramrao0102/project0
 
 pipenv run python project0/main.py --incidents <url>
 
 15) Once the database is created and the table is populated, we have a pytest being performed that checks the following:
 
-15A) a function to check if the file has been downloaded.  It looks at the path in root to check if file has been downloaded following execution of command in 14.  This checks if the download function was successfully executed.
+15A) a function to check if the file has been downloaded.  It looks at the path in /home/ramrao0102/project0 to check if file has been downloaded following execution of command in 14.  This checks if the download function was successfully executed.
 
-15B) a function to check if the database exists in the root.  This checks if the createdatabase() function was successfully executed.
+15B) a function to check if the database exists in the /home/ramrao0102/project0.  This checks if the createdatabase() function was successfully executed.
 
 15C) a function to check if the incident_status function was successfully executed.  The test function calls the incident_status function from the project0.py file.
 
