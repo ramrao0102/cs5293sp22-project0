@@ -11,7 +11,7 @@ def fetch_incidents():
 
     fp =tempfile.TemporaryFile()
 
-    datafile = open('Test.pdf', 'rb')
+    datafile = open('Incidents_File.pdf', 'rb')
 
     fp.write(datafile.read())
 
@@ -89,14 +89,14 @@ def fetch_incidents():
 
 def createdatabase():
 
-    conn = sqlite3.connect('trial')
+    conn = sqlite3.connect('project0database')
     c = conn.cursor()
     c.execute('CREATE TABLE incidents3 (incident_time TEXT, incident_number TEXT, incident_location TEXT, nature TEXT, incident_ori TEXT);')
     conn.commit()
 
 def populatedatabase(newlist):
 
-    conn = sqlite3.connect('trial')
+    conn = sqlite3.connect('project0database')
     c = conn.cursor()
     stmt = "INSERT INTO incidents3(incident_time, incident_number, incident_location, nature, incident_ori) VALUES (?,?,?,?,?)"
     c.executemany(stmt, newlist)
@@ -104,7 +104,7 @@ def populatedatabase(newlist):
 
 def incidentstatus():
 
-    conn = sqlite3.connect('trial')
+    conn = sqlite3.connect('project0database')
     c = conn.cursor()
 
     find = "SELECT  nature, count(*) from incidents3 GROUP BY(nature)";

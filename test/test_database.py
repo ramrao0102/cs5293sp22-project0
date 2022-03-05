@@ -1,7 +1,7 @@
 import project0
 
 def test_database():
-    return "trial"
+    return "project0database"
 
 
 

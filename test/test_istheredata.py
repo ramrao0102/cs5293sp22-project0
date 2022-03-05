@@ -3,7 +3,7 @@ import sqlite3
 
 
 def test_istheredata():
-    conn = sqlite3.connect('trial')
+    conn = sqlite3.connect('project0database')
     c = conn.cursor()
     find = "SELECT * from incidents3";
     c.execute(find)
