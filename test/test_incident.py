@@ -1,5 +1,6 @@
-import project0
+from project0.project0 import incidentstatus
 
 def test_incident():
-    rows = project0.incidentstatus()
-    return len(rows) >=1
+    rows = incidentstatus()
+    assert len(rows) >=1
+    return 0
