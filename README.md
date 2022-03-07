@@ -5,6 +5,7 @@ The following was performed in sequence:
 1) File structure as created in the following path:  /home/ramrao0102/project0.  The file structure is what is seen on github
 
 2) Pipfile, Pipfile.lock, setup.py and setup.cfg files were created in the project 0 directory and contained the information that can be seen in these files on github
+the Pipfile has the packages that are included. Setup.py and Setup.cfg files are created for operation.
 
 3) The pdf file of the incident reports from the website link noted below were accessed. These reports are published daily on the city of Norman website.  They contain five fields:  Date/Time, Incident No, Location, Nature, Incident_ORI.
 https://www.normanok.gov/sites/default/files/documents/2022-02/2022-02-05_daily_incident_summary.pdf
@@ -33,8 +34,8 @@ pipenv run python project0/main.py --incidents <url>
 
 8) Following the placement of the information in a flat python list, a series of if-then commands have been developed to check if there is any missing data in the fields.  
 
-* In the data time field, if  we donot see 2022, then a NULL is added.
-* In the Incident No. field, if we donot see 2022, then a NULL is added.
+* In the data time field, if  we donot see regex '/2022' in the field, then a NULL is added.
+* In the Incident No. field, if we donot see regex '2022-' in the field, then a NULL is added.
 * In the Location field, we check to see if the string is not upper case and does not contain the strings that are in the incident_ORI field, namely OK0140200, EMSSTAT, 14005, and 14009, then a NULL is added.
 * In the Nature, which is the only lower case, we check if it is upper case, or if it contains 2022 exists or if it contains the strings that are in the incident_ORI field, namely OK0140200, EMSSTAT, 14005, and 14009, which means Nature is Null and it adds NULL in this field.
 * In the Incident_ORI, we check if the strings OK0140200, EMSSTAT, 14005, and 14009 do not exist.  If they do not then we add NULL in the field.

@@ -4,7 +4,7 @@ import PyPDF2
 import numpy as np
 
 import pandas as pd
-
+import re
 import sqlite3
 
 def fetch_incidents():
@@ -60,11 +60,11 @@ def fetch_incidents():
 
     for k in range(len(flat_ls)):
         if k% 5 ==0:
-            if '2022' not in flat_ls[k]:
+            if re.search ('/2022' ,flat_ls[k]) == None:
                 flat_ls.insert(k, 'NULL')
                 continue
         elif k%5 ==1:
-            if '2022' not in flat_ls[k] :
+            if re.search('2022-',flat_ls[k]) == None :
                 flat_ls.insert(k, 'NULL')
                 continue
         elif k%5 ==2:
