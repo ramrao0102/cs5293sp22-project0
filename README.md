@@ -38,11 +38,9 @@ pipenv run python project0/main.py --incidents https://www.normanok.gov/sites/de
 * In the Incident No. field, if we donot see regex '2022-' in the field, then a NULL is added.
 * In the Location field, we check to see if the string is not upper case and does not contain the strings that are in the incident_ORI field, namely OK0140200, EMSSTAT, 14005, and 14009, then a NULL is added.
 * In the Nature, which is the only lower case, we check if it is upper case, or if it contains 2022 exists or if it contains the strings that are in the incident_ORI field, namely OK0140200, EMSSTAT, 14005, and 14009, which means Nature is Null and it adds NULL in this field.
-* In the Incident_ORI, we are doing regex search to see if it is not one word, if one word if it does not contain upper case characters A to Z or 0 to 9, and if it does contain 2022, then add Null
-*  if re.search('^\S+$', flat_ls[k]) == None:
-                if re.search('[A-Z0-9]', flat_ls[k])  == None:
-                    if '2022' in flat_ls[k]
-* alternatively, we can check if the strings OK0140200, EMSSTAT, 14005, and 14009 do not exist.  If they do not then we add NULL in the field, this has been commented out in favor of the above.
+* In the Incident_ORI, we are doing regex search to see (if it is not one word and if one word if it does not contain upper case characters A to Z or 0 to 9) or if it does contain 2022, then add Null in that field; otherwise no chnage.
+
+* alternatively, we can check if the strings OK0140200, EMSSTAT, 14005, and 14009 do not exist.  If they do not then we add NULL in the field, this has been commented out in favor of the above as the above is a more generalized check.
 
 9) Once this is created, then we create a list of lists from this flat_list.  Each inner list has length 5, which is the number of fields in the database.
    The database name is project0database.
