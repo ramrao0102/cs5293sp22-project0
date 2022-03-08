@@ -12,7 +12,7 @@ https://www.normanok.gov/sites/default/files/documents/2022-02/2022-02-05_daily_
 
 4) Two primary python files are created.  One is main.py and a second file is project0.py.  Main.py contains a function that is used to to download the file. A function was written that includes an argument parser.  The user enters the following information from the command line to push the argument into the function from which the argument is parsed to obtain the url link
 
-pipenv run python project0/main.py --incidents <url>
+pipenv run python project0/main.py --incidents https://www.normanok.gov/sites/default/files/documents/2022-02/2022-02-05_daily_incident_summary.pdf
 
 5) Urlilib directory is used to download the file from the website using the urlink and within the function, code is written to write the pdf file Incidents_File.pdf to the /home/ramrao0102/project0.
 
@@ -30,7 +30,7 @@ pipenv run python project0/main.py --incidents <url>
 
 7E)	The a flat list is created to append each string (i.e., in each field) into a python list.
 
-7F) The flat list is formatted to check if there is wrap around text in the Location field and if there is a wrap around, the two strings that together describe the location are combined and once they are combine, then the list is updated to remove the second strip in the ìwrap aroundî string and the index of the list is accordingly modified. 
+7F) The flat list is formatted to check if there is wrap around text in the Location field and if there is a wrap around, the two strings that together describe the location are combined and once they are combine, then the list is updated to remove the second strip in the ‚Äúwrap around‚Äù string and the index of the list is accordingly modified. 
 
 8) Following the placement of the information in a flat python list, a series of if-then commands have been developed to check if there is any missing data in the fields.  
 
