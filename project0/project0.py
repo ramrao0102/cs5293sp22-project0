@@ -77,7 +77,7 @@ def fetch_incidents():
                 flat_ls.insert(k, 'NULL')
                 continue
         elif k%5 == 4:
-            if (re.search('^\S+$', flat_ls[k]) == None) or  (re.search('[a-z]', flat_ls[k])) or '2022' in flat_ls[k]:
+            if (re.search(r'^\S+$', flat_ls[k]) == None) or  (re.search('[a-z]', flat_ls[k])) or '2022' in flat_ls[k]:
             #if 'OK0140200' not in flat_ls[k]  and 'EMSSTAT' not in flat_ls[k] and '14005'not in flat_ls[k] and '14009' not in flat_ls[k]:
                 #print(flat_ls[k])
                 flat_ls.insert(k, 'NULL')
