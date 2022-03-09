@@ -4,7 +4,7 @@ urllib, and re
 
 The following was performed in sequence:
 
-1) File structure as created in the following path:  /home/ramrao0102/project0.  The file structure is what is seen on github
+1) File structure as created in the following path:  /home/ramrao0102/project0.  The file structure is what is seen on the github repository.
 
 2) Pipfile, Pipfile.lock, setup.py and setup.cfg files were created in the project 0 directory and contained the information that can be seen in these files on github
 the Pipfile has the packages that are included. Setup.py and Setup.cfg files are created for operation.
@@ -47,13 +47,13 @@ pipenv run python project0/main.py --incidents https://www.normanok.gov/sites/de
 9) Once this is created, then we create a list of lists from this flat_list.  Each inner list has length 5, which is the number of fields in the database.
    The database name is project0database.
 
-10) A function is then written to create a database in /home/ramrao0102/project0 and it is called trial database.  A table is added to this database with the following fields: Date/Time, Incident No, Location, Nature, Incident_ORI.
+10) A function is then written to create a database in /home/ramrao0102/project0 and it is called project0database.  A table is added to this database with the following fields: Date/Time, Incident No, Location, Nature, Incident_ORI.
 
 11) The table is committed to the database.
 
-12) Once the table is created in the database, we have a function that connects back to the database and inserts one row at a time from the list of lists into the database.  The changes are then committed to the database.
+12) Once the table is created in the database, we have a function that connects back to the database and inserts one row at a time from the list of lists into the database.  The changes are then committed to the database. As stated earlier each list in the list of lists corrresponds to the number of fields (in one row) of the database.
 
-13) Finally, an function is written to obtain incident status from the database by connecting data and fetching rows that contain each incident type and the number of counts by incident type.
+13) Finally, a function is written to obtain incident status from the database by connecting data and fetching rows that contain each incident type and the number of counts by incident type.
 
 14) Execution of all of the above elements is completed by entering the below command in /home/ramrao0102/project0
 
@@ -68,3 +68,5 @@ pipenv run python project0/main.py --incidents https://www.normanok.gov/sites/de
 15C) a function to check if the incident_status function was successfully executed.  The test function calls the incident_status function from the project0.py file.
 
 15D) a function to check if there is data in the database.  This is used to check if the populatedatabase() function was successfully executed.
+
+16) Once these steps were completed, the changes were committed to the github repository and the pytest was executed once the files are uploaded to confirm that the tests ran successfully.
