@@ -1,8 +1,6 @@
 import argparse
 import tempfile
 import PyPDF2
-import numpy as np
-import pandas as pd
 import sqlite3
 import project0
 import urllib.request

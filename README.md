@@ -1,4 +1,6 @@
 This is Ramkishore Rao's Project0 for CS5293
+Note that packages used are argparse, tempfile, pyPDF2, sqlite, pytest,
+urllib, and re
 
 The following was performed in sequence:
 
@@ -55,7 +57,7 @@ pipenv run python project0/main.py --incidents https://www.normanok.gov/sites/de
 
 14) Execution of all of the above elements is completed by entering the below command in /home/ramrao0102/project0
 
-pipenv run python project0/main.py --incidents <url>
+pipenv run python project0/main.py --incidents https://www.normanok.gov/sites/default/files/documents/2022-02/2022-02-05_daily_incident_summary.pdf
 
 15) Once the database is created and the table is populated, we have a pytest being performed that checks the following:
 
